@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalandos Játékbirodalom</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="img/logo/logo.jpg" alt="Logo" class="logo">
+            <span>Játékbirodalom</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#">Játékszabályok</a></li>
+            <li><a href="#">Támogatás</a></li>
+            <li><a href="#">Kapcsolat</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="hero">
+            <h1>Üdvözöllek a Kalandok Földjén! 👋</h1>
+            <p>Válassz egy játékot és tornáztasd meg az agyad!</p>
+        </header>
+
+        <div class="game-grid">
+            <div class="game-card" onclick="window.location.href='game1.html'">
+                <div class="card-image" style="background-image: url('img/game/game1.jpg'); background-color: #FF6B6B;">
+                    <span>⌨️</span>
+                </div>
+                <div class="card-content">
+                    <h3>Betűvadász</h3>
+                    <p>Gépelj gyorsan és pontosan!</p>
+                    <button class="play-btn">Játék betöltése</button>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="window.location.href='game2.html'">
+                <div class="card-image" style="background-image: url('img/game/game2.jpg'); background-color: #4ECDC4;">
+                    <span>✌️</span>
+                </div>
+                <div class="card-content">
+                    <h3>Kő, Papír, Olló</h3>
+                    <p>Győzd le a barátodat!</p>
+                    <button class="play-btn">Játék betöltése</button>
+                </div>
+            </div>
+
+            <div class="game-card locked">
+                <div class="card-image" style="background-color: #ffe66d;">
+                    <span>🔒</span>
+                </div>
+                <div class="card-content">
+                    <h3>Hamarosan...</h3>
+                    <p>Új játék érkezik!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Játékbirodalom - Minden jog fenntartva.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

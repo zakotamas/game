@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betűvadász</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="game1.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration:none; color:inherit;">⬅️ Vissza</a>
+        </div>
+        <div>Betűvadász</div>
+    </nav>
+
+    <div id="startScreen" class="overlay active">
+        <div class="overlay-content">
+            <h1>Betűvadász</h1>
+            <p>Találd meg a felvillanó betűket a billentyűzeten!</p>
+            <p>Idő: 5 perc | Helyes: +3 pont | Hiba: -1 pont</p>
+            <button onclick="initGame()" class="big-start-btn">MEHET!</button>
+        </div>
+    </div>
+
+    <div class="game-wrapper">
+        <div class="hud">
+            <div class="score-board">Pontszám: <span id="score">0</span></div>
+            <div class="timer">Idő: <span id="time">05:00</span></div>
+        </div>
+
+        <div class="game-area">
+            <div class="target-display">
+                Nyomd meg: <span id="target-key">?</span>
+            </div>
+            
+            <div class="keyboard-container" id="keyboard">
+                </div>
+        </div>
+
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <h2>Játék Vége!</h2>
+                <p>Elért pontszám: <span id="finalScore">0</span></p>
+                <button onclick="restartGame()">Újra játszom</button>
+                <button onclick="window.location.href='index.html'">Kilépés</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game1.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kő, Papír, Olló</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="game2.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration:none; color:inherit;">⬅️ Vissza</a>
+        </div>
+        <div>Kő Papír Olló</div>
+    </nav>
+
+    <div id="startScreen" class="overlay active">
+        <div class="overlay-content">
+            <h1>Kő, Papír, Olló</h1>
+            <p>Párbaj mód! Add át a telefont a barátodnak.</p>
+            <button onclick="startGame()" class="big-start-btn" style="color: #4ECDC4; background: white;">MEHET!</button>
+        </div>
+    </div>
+
+    <div class="arena">
+        <div class="score-container">
+            <div class="player-card active-turn" id="p1-card">
+                <div class="p-name">Játékos 1</div>
+                <div class="p-score" id="p1-score">0</div>
+                <div class="turn-indicator">TE JÖSSZ!</div>
+            </div>
+            
+            <div class="vs-badge">VS</div>
+            
+            <div class="player-card" id="p2-card">
+                <div class="p-name">Játékos 2</div>
+                <div class="p-score" id="p2-score">0</div>
+                <div class="turn-indicator">TE JÖSSZ!</div>
+            </div>
+        </div>
+
+        <div class="game-stage" id="stage">
+            <h2 id="instruction">Játékos 1 választ!</h2>
+            <p id="sub-instruction" class="sub-text">(Játékos 2, ne leskelődj!)</p>
+
+            <div class="options" id="options-container">
+                <div class="option" onclick="makeChoice('rock')">🪨<br>Kő</div>
+                <div class="option" onclick="makeChoice('paper')">📄<br>Papír</div>
+                <div class="option" onclick="makeChoice('scissors')">✂️<br>Olló</div>
+            </div>
+
+            <div class="result-view" id="result-view" style="display: none;">
+                <div class="hands">
+                    <div class="hand" id="hand1">🤜</div>
+                    <div class="hand" id="hand2">🤛</div>
+                </div>
+                <h2 id="round-result-text">Eredmény...</h2>
+                <div class="controls hidden" id="controls">
+                    <button class="action-btn" onclick="nextRound()">Következő Kör</button>
+                    <button class="action-btn secondary" onclick="endGame()">Vége</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="interstitial" class="interstitial">
+        <h2>Add át a telefont a Játékos 2-nek!</h2>
+        <button class="action-btn" onclick="startTurn2()">Mehet!</button>
+    </div>
+
+    <script src="game2.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+.arena { max-width: 800px; margin: 0 auto; padding: 2rem; text-align: center; }
+
+/* Pontszám Kártyák */
+.score-container {
+    display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 40px;
+}
+.player-card {
+    background: white; padding: 15px; border-radius: 15px; width: 140px;
+    text-align: center; box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    border: 3px solid transparent; opacity: 0.6; transition: all 0.3s;
+}
+.player-card .p-name { font-weight: bold; color: #666; margin-bottom: 5px; }
+.player-card .p-score { font-size: 2.5rem; font-family: var(--font-heading); color: var(--dark); }
+.turn-indicator { 
+    display: none; font-size: 0.8rem; background: var(--primary); color: white;
+    border-radius: 20px; padding: 2px 8px; margin-top: 5px;
+}
+
+.player-card.active-turn {
+    opacity: 1; transform: scale(1.1); border-color: var(--primary);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.player-card.active-turn .turn-indicator { display: inline-block; }
+#p2-card.active-turn { border-color: var(--secondary); }
+#p2-card.active-turn .turn-indicator { background: var(--secondary); }
+
+.vs-badge {
+    background: var(--dark); color: white; font-weight: bold; padding: 10px;
+    border-radius: 50%; font-size: 0.9rem; z-index: 2;
+}
+
+/* Játék Tér */
+.options { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.option {
+    width: 120px; height: 150px; background: white; border: 3px solid #ddd;
+    border-radius: 20px; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; font-size: 3rem; cursor: pointer; transition: all 0.3s;
+    font-family: var(--font-heading);
+}
+.option:hover { transform: translateY(-10px); border-color: var(--secondary); background: #e8fbf9; }
+
+/* Eredmény */
+.result-view { margin-top: 50px; }
+.hands { display: flex; justify-content: center; gap: 50px; font-size: 6rem; margin-bottom: 30px; }
+.hand { transition: transform 0.2s; }
+.shake { animation: shakeHand 0.5s infinite; }
+
+@keyframes shakeHand {
+    0% { transform: translateY(0) rotate(0); }
+    25% { transform: translateY(-20px) rotate(-10deg); }
+    50% { transform: translateY(0) rotate(0); }
+    75% { transform: translateY(-20px) rotate(10deg); }
+    100% { transform: translateY(0) rotate(0); }
+}
+
+.controls { margin-top: 20px; opacity: 0; transition: opacity 0.5s; }
+.controls.visible { opacity: 1; }
+.action-btn {
+    padding: 15px 30px; font-size: 1.2rem; background: var(--primary); color: white;
+    border: none; border-radius: 50px; cursor: pointer; font-family: var(--font-heading); margin: 10px;
+}
+.action-btn.secondary { background: #95a5a6; }
+
+/* Köztes képernyő */
+.interstitial {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--secondary); display: none;
+    flex-direction: column; justify-content: center; align-items: center;
+    color: white; z-index: 200;
+}
+.interstitial h2 { font-size: 2rem; margin-bottom: 20px; text-align: center; font-family: var(--font-heading); }
