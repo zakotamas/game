@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Bohém Futó — Javított</title>
+  <link rel="stylesheet" href="game3.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">⬅️ Vissza</div>
+    <div class="title">Bohém Futó</div>
+  </nav>
+
+  <main class="container">
+    <div class="game-wrapper">
+      <canvas id="gameCanvas" aria-label="Játék vászon"></canvas>
+
+      <div id="hud" class="hud" aria-hidden="false">
+        <div class="score">Pont: <span id="score">0</span></div>
+        <div class="speed">Sebesség: <span id="speed">1.00</span></div>
+      </div>
+
+      <div id="controls" class="controls" aria-hidden="false">
+        <button id="btnUp" class="control-btn" aria-label="Ugrás">▲</button>
+        <button id="btnDown" class="control-btn" aria-label="Hajolás">▼</button>
+      </div>
+
+      <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true">
+        <div class="overlay-card">
+          <h2 id="gameOverTitle">Játék vége</h2>
+          <p id="finalScore">Elért pont: 0</p>
+          <div class="overlay-actions">
+            <button id="restartBtn" class="action">Új játék</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="startOverlay" class="overlay start-overlay" role="dialog" aria-modal="true">
+        <div class="overlay-card">
+          <h1>Bohém Futó</h1>
+          <p>Ugrás: fel gomb vagy érintés. Hajolás: le gomb vagy érintés. — figyelj az akadályokra!</p>
+          <button id="startBtn" class="action">MEGKEZDEM</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="game3.js"></script>
+</body>
+</html>

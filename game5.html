@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labirintus Logika - Brain Boost</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="game5.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration:none; color:inherit;">⬅️ Vissza</a>
+        </div>
+        <div>Kábelzűrzavar 🔌</div>
+    </nav>
+
+    <div id="startScreen" class="overlay active">
+        <div class="overlay-content">
+            <h1>Kábelzűrzavar 🧩</h1>
+            <p>A robotnak áramra van szüksége!</p>
+            <p>Kövesd a <strong>kivilágított</strong> vezetéket a kuszaságon át.</p>
+            <p>Melyik csatlakozóba fut bele: A, B vagy C?</p>
+            <button onclick="initGame()" class="big-start-btn">Indítás</button>
+        </div>
+    </div>
+
+    <div class="game-wrapper">
+        <div class="hud">
+            <div>Szint: <span id="levelDisplay">1</span> / 20</div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="mazeCanvas"></canvas>
+        </div>
+
+        <div class="controls">
+            <p>Hová vezet a kábel?</p>
+            <div class="button-row">
+                <button onclick="checkAnswer(0)" class="choice-btn btn-a">A</button>
+                <button onclick="checkAnswer(1)" class="choice-btn btn-b">B</button>
+                <button onclick="checkAnswer(2)" class="choice-btn btn-c">C</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>⚡ Siker!</h2>
+            <p>Megtaláltad a helyes csatlakozót!</p>
+            <button onclick="nextLevel()" class="big-start-btn">Következő pálya</button>
+        </div>
+    </div>
+
+    <div id="failModal" class="modal">
+        <div class="modal-content">
+            <h2>💥 Zárlat!</h2>
+            <p>Nem ez volt a jó vezeték. Kövesd végig figyelmesen!</p>
+            <button onclick="retryLevel()" class="big-start-btn" style="background:#e74c3c;">Újrapróbálom</button>
+        </div>
+    </div>
+
+    <div id="endModal" class="modal">
+        <div class="modal-content">
+            <h2>🏆 Mesteri Teljesítmény!</h2>
+            <p>Minden kábelt kibogoztál. Az agyad pengeéles!</p>
+            <button onclick="window.location.href='index.html'" class="big-start-btn">Vissza a menübe</button>
+        </div>
+    </div>
+
+    <script src="game5.js"></script>
+</body>
+</html>

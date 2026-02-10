@@ -1,0 +1,123 @@
+/* game5.css - Kábelzűrzavar stílusok */
+
+/* A teljes játékterület közpre igazítása */
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Felső információs sáv (HUD) */
+.hud {
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    margin-bottom: 15px;
+    background: #fff;
+    padding: 10px 30px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    color: var(--dark);
+}
+
+/* A Canvas tároló doboza */
+.canvas-container {
+    background: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* Mobilon teljes szélesség, de ne legyen túl óriási asztalin */
+    max-width: 600px; 
+    border: 4px solid var(--dark);
+}
+
+/* Maga a rajzvászon */
+canvas {
+    border-radius: 15px;
+    background-color: #f4f4f9; /* Halvány szürke háttér a jó kontrasztért */
+    width: 100%;
+    height: auto;
+    /* A kurzor legyen célkereszt, hogy segítse a szemkövetést */
+    cursor: crosshair;
+}
+
+/* Vezérlő gombok doboza */
+.controls {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.controls p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+/* Gombok elrendezése sorban */
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Választó gombok alapstílusa */
+.choice-btn {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.8rem;
+    font-family: var(--font-heading);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.1s, filter 0.2s;
+    box-shadow: 0 5px 0 rgba(0,0,0,0.2);
+}
+
+.choice-btn:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+/* Egyedi színek a gomboknak (hogy passzoljanak a célállomásokhoz) */
+.btn-a { background-color: #FF6B6B; } /* Pirosas */
+.btn-b { background-color: #4ECDC4; } /* Türkiz */
+.btn-c { background-color: #FF9F1C; } /* Narancs */
+
+/* Modal (felugró ablak) stílusok */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(41, 47, 54, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 400px;
+    width: 100%;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    font-family: var(--font-heading);
+    color: var(--primary);
+}

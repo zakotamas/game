@@ -1,0 +1,49 @@
+:root{
+  --bg:#f6f7f9;
+  --ground:#e9ecef;
+  --accent:#4ECDC4;
+  --accent2:#FF6B6B;
+  --dark:#2d2d2d;
+  --card:#ffffff;
+  --shadow: 0 8px 20px rgba(0,0,0,0.08);
+  --font: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:var(--font);background:linear-gradient(180deg,#f8fbfb,#f0f6f6);color:var(--dark)}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:transparent;max-width:1100px;margin:0 auto}
+.title{font-weight:700}
+.container{max-width:1100px;margin:0 auto;padding:12px}
+.game-wrapper{position:relative;border-radius:12px;background:var(--card);box-shadow:var(--shadow);overflow:hidden;padding:12px}
+
+/* Canvas responsive */
+#gameCanvas{width:100%;height:62vh;display:block;background:linear-gradient(180deg,#cfeef0,#eaf7f6);border-radius:8px}
+
+/* HUD */
+.hud{position:absolute;top:18px;left:18px;display:flex;gap:12px;align-items:center;z-index:20}
+.hud .score,.hud .speed{background:rgba(255,255,255,0.95);padding:8px 12px;border-radius:10px;font-weight:700;box-shadow:0 4px 10px rgba(0,0,0,0.06)}
+
+/* Controls for mobile */
+.controls{position:absolute;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:25}
+.control-btn{width:56px;height:56px;border-radius:12px;border:none;background:var(--accent);color:white;font-size:22px;box-shadow:var(--shadow);touch-action:manipulation}
+.control-btn:active{transform:translateY(2px)}
+.control-btn.secondary{background:var(--accent2)}
+
+/* Overlay */
+.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);z-index:30}
+.overlay.hidden{display:none}
+.start-overlay{background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.7))}
+.overlay-card{background:var(--card);padding:22px;border-radius:12px;box-shadow:var(--shadow);text-align:center;max-width:360px}
+.action{padding:12px 20px;border-radius:999px;border:none;background:var(--accent);color:white;font-weight:700;font-size:16px}
+.overlay-actions{margin-top:12px}
+
+/* Small screens adjustments */
+@media (max-width:600px){
+  #gameCanvas{height:58vh}
+  .controls{right:12px;bottom:12px}
+  .control-btn{width:48px;height:48px;font-size:18px}
+  .hud{left:12px;top:12px;gap:8px}
+}
+
+/* Accessibility focus */
+.control-btn:focus, .action:focus { outline:3px solid rgba(78,205,196,0.25); outline-offset:2px; }

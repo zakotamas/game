@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memória Mester - Brain Boost</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="game6.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration:none; color:inherit;">⬅️ Vissza</a>
+        </div>
+        <div>Memória Mester 🧠</div>
+    </nav>
+
+    <div id="startScreen" class="overlay active">
+        <div class="overlay-content">
+            <h1>Memória Mester</h1>
+            <p>Jegyezd meg a kártyák helyét!</p>
+            <p>Találd meg az összes párt. Ha egyeznek, eltűnnek.</p>
+            <button onclick="startGame()" class="big-start-btn">Kezdés</button>
+        </div>
+    </div>
+
+    <main class="game-wrapper">
+        
+        <div class="hud">
+            <div class="hud-item">Lépések: <span id="moves">0</span></div>
+            <div class="hud-item">Idő: <span id="time">00:00</span></div>
+            <div class="hud-item">Megtalálva: <span id="matches">0</span>/15</div>
+        </div>
+
+        <div class="memory-grid" id="grid">
+            </div>
+
+        <div id="toast" class="toast-message"></div>
+
+    </main>
+
+    <div id="victoryModal" class="modal">
+        <div class="modal-content">
+            <h2>🏆 Gratulálok!</h2>
+            <p>Minden párt megtaláltál!</p>
+            <p>Idő: <span id="finalTime"></span> | Lépések: <span id="finalMoves"></span></p>
+            <button onclick="restartGame()" class="big-start-btn">Újra játszom</button>
+            <br><br>
+            <button onclick="window.location.href='index.html'" class="secondary-btn">Kilépés a menübe</button>
+        </div>
+    </div>
+
+    <script src="game6.js"></script>
+</body>
+</html>

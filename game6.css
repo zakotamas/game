@@ -1,0 +1,159 @@
+/* game6.css - Memória Mester stílusok */
+
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* HUD stílus */
+.hud {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--dark);
+}
+
+/* Rácsrendszer (Grid) - Reszponzív */
+.memory-grid {
+    display: grid;
+    /* Mobilon: 4 oszlop, Tablet/PC: 5 vagy 6 oszlop */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px;
+    width: 100%;
+    max-width: 600px; /* Hogy ne legyenek túl nagyok a kártyák PC-n */
+    perspective: 1000px; /* Ez kell a 3D forgatáshoz */
+}
+
+/* Média lekérdezések a rács finomhangolásához */
+@media (min-width: 600px) {
+    .memory-grid {
+        grid-template-columns: repeat(5, 1fr); /* 5 oszlop */
+        gap: 15px;
+    }
+}
+@media (min-width: 800px) {
+    .memory-grid {
+        grid-template-columns: repeat(6, 1fr); /* 6 oszlop széles képernyőn */
+    }
+}
+
+/* A KÁRTYA konténer */
+.card {
+    background-color: transparent;
+    aspect-ratio: 1 / 1; /* Mindig négyzet */
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    border-radius: 10px;
+}
+
+/* Ha a kártya "flipped" osztályt kap, megfordul */
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Ha megtalálták a párt, elrejtjük (de a helye megmarad!) */
+.card.matched {
+    visibility: hidden; 
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+
+/* Kártya elő- és hátlapja közös stílus */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hogy ne látszódjon a hátulja */
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-size: 2.5rem;
+    user-select: none;
+}
+
+/* HÁTLAP (amit alapból látunk) */
+.card-front {
+    background: linear-gradient(135deg, #845EC2, #D65DB1);
+    color: white;
+    font-size: 2rem;
+    /* Minta a hátlapra (opcionális) */
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.1) 0px,
+        rgba(255,255,255,0.1) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+}
+
+/* ELŐLAP (a kép/emoji) - Alapból elforgatva van */
+.card-back {
+    background-color: white;
+    transform: rotateY(180deg);
+    border: 2px solid #845EC2;
+}
+
+/* Mobilra optimalizált betűméret */
+@media (max-width: 400px) {
+    .card-face { font-size: 2rem; }
+    .hud { font-size: 0.9rem; padding: 10px 15px; }
+}
+
+/* Toast üzenet (Dicséret/Bátorítás) */
+.toast-message {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(41, 47, 54, 0.9);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none; /* Át lehessen kattintani rajta */
+    z-index: 500;
+}
+
+.toast-message.show {
+    opacity: 1;
+    animation: bounceIn 0.5s;
+}
+
+@keyframes bounceIn {
+    0% { transform: translateX(-50%) scale(0.5); opacity: 0; }
+    50% { transform: translateX(-50%) scale(1.1); }
+    100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+/* Másodlagos gomb stílus (a modalhoz) */
+.secondary-btn {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.secondary-btn:hover { background: #fff0f0; }

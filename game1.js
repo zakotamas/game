@@ -2,7 +2,7 @@
 const keyboardRows = [
     "QWERTZUIOPŐÚ".split(""),
     "ASDFGHJKLÉÁŰ".split(""),
-    "ÍYXCVBNMÖÜ".split("")
+    "ÍYXCVBNM".split("")
 ];
 const allKeys = keyboardRows.flat();
 

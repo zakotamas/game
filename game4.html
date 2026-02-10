@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matek Mágus - Brain Boost</title>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="game4.css"> </head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration:none; color:inherit;">⬅️ Vissza</a>
+        </div>
+        <div>Matek Mágus</div>
+    </nav>
+
+    <div id="startScreen" class="overlay active">
+        <div class="overlay-content">
+            <h1>Matek Mágus 🧮</h1>
+            <p>Válassz nehézségi szintet (osztályt)!</p>
+            <div class="level-selector">
+                <button onclick="startGame(1)" class="level-btn">1. Osztály</button>
+                <button onclick="startGame(2)" class="level-btn">2. Osztály</button>
+                <button onclick="startGame(3)" class="level-btn">3. Osztály</button>
+                <button onclick="startGame(4)" class="level-btn">4. Osztály</button>
+                <button onclick="startGame(5)" class="level-btn">5. Osztály</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="game-wrapper">
+        <div class="hud">
+            <div class="level-info">Szint: <span id="currentLevelDisplay">1</span>. Osztály</div>
+            <div class="progress-info">Feladat: <span id="progressDisplay">1/20</span></div>
+        </div>
+
+        <div class="math-container">
+            <div id="questionBox" class="question">? + ?</div> <input type="number" id="answerInput" placeholder="?" inputmode="numeric"> <button onclick="checkAnswer()" class="submit-btn">Ellenőrzés</button>
+            <div id="feedbackMessage" class="feedback"></div> </div>
+    </main>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 Remek munka!</h2>
+            <p>A válaszod helyes.</p>
+            <button onclick="nextQuestion()" class="big-start-btn">Következő feladat</button>
+        </div>
+    </div>
+
+    <div id="levelCompleteModal" class="modal">
+        <div class="modal-content">
+            <h2>🏆 Szint Teljesítve!</h2>
+            <p>Gratulálok! Megcsináltad az összes feladatot.</p>
+            <button onclick="nextLevel()" class="big-start-btn">Jöhet a <span id="nextLevelNum">2</span>. Osztály!</button>
+        </div>
+    </div>
+
+    <script src="game4.js"></script>
+</body>
+</html>
